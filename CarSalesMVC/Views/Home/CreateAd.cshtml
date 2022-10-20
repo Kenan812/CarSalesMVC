@@ -1,0 +1,53 @@
+﻿@model CreateAdViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1 class="text-center">Create new Advertisment</h1>
+
+    <form method="post" asp-action="AddCar" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="carName">Car Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="carName" aria-describedby="carNameHelp" placeholder="Enter car name" asp-for="CreateAdDto.CarName">
+            <small id="carNameHelp" class="form-text text-muted">Please provide full car name.</small>
+        </div>
+
+        <div class="form-group mt-3"> 
+            <label for="engine">Mileage <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="mileage" aria-describedby="mileageHelp" placeholder="Mileage(in kms)" asp-for="CreateAdDto.Odometer">
+            <small id="mileageHelp" class="form-text text-muted">Please provide exact value from odometer in kms. Leave empty if 0</small>
+        </div>
+      
+        
+        <div class="form-group mt-3">
+            <label for="engine">Engine <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="engine" placeholder="Engine" asp-for="CreateAdDto.Engine">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Description" asp-for="CreateAdDto.Description">
+            <small id="descriptionHelp" class="form-text text-muted">Leave empty for no description</small>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="colour">Colour</label>
+            <input type="text" class="form-control" id="colour" aria-describedby="colourHelp" placeholder="Colour" asp-for="CreateAdDto.Colour">
+            <small id="colourHelp" class="form-text text-muted">Leave empty for no colour</small>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="price">Price <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="price" placeholder="Price" asp-for="CreateAdDto.Price">
+        </div>
+
+
+        <label class="text-danger">@Model.ErrorMessage</label><br/>
+      
+        <input type="submit" class="btn btn-primary mt-5" placeholder="Submit"/>
+    </form>
+
+</div>
+
